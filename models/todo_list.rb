@@ -1,3 +1,5 @@
+require 'pry'
+
 class TodoList	
  	attr_reader :list_of_todos
  	def initialize
@@ -13,4 +15,13 @@ class TodoList
  			sum + todo.time.to_i
  		end
  	end	
+
+ 	def delete_task(id)
+  		@list_of_todos.delete_if{|task| task.id == id.to_i}
+ 	 end
+
+ 	 def find_task_by_id(id)
+  		task = @list_of_todos.find{|task| task.id == id.to_i}
+  		task.nil? ? nil : task
+  	end
 end

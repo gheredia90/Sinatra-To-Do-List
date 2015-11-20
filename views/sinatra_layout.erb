@@ -6,10 +6,13 @@
  <body>
 
  <ul>
-	 <li><a href="#home">Home</a></li>
-	 <li><a href="#news">News</a></li>
-	 <li><a href="#contact">Contact</a></li>
-	 <li><a href="#about">About</a></li>
+	 <li><a href="/todos">Todo List</a></li>
+	 <li><a href="/new_todo">New Task</a></li>	
+	 <% if session[:user] == nil %>	 
+	 	<li><a href="/login">Login</a></li>
+	 <% else %>	
+	 	<li><a href="/logout">Logout</a></li>
+	<% end %>	
  </ul>
 
  <%= yield %>
